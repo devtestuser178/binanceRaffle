@@ -7,6 +7,7 @@ import Image from "next/image";
 import { Button } from "./ui/button";
 import displayIcon from "../assets/icons/display-icon.svg";
 import nightIcon from "../assets/icons/night-icon.svg";
+
 import menuIcon from "../assets/icons/menu.svg";
 import Link from "next/link";
 import {
@@ -26,7 +27,12 @@ interface AuthButtonProps {
 
 export const AuthButton = ({ href, children, className }: AuthButtonProps) => {
   return (
-    <Button className={cn(`${className}`)} asChild>
+    <Button
+      className={cn(
+        `${className} w-full text-sm font-semibold hover:filter hover:brightness-90`
+      )}
+      asChild
+    >
       <Link href={href}>{children}</Link>
     </Button>
   );
@@ -46,48 +52,66 @@ export const Nav = () => {
         animate={{ scale: 1 }}
         transition={{ duration: 0.5 }}
       >
-        <Image
-          src={binanceLogo}
-          alt="Binance Logo"
-          className="logo"
-          width={125}
-          height={125}
-        />
+        <div className="flex items-center">
+          <Image
+            src={binanceLogo}
+            alt="Binance Logo"
+            className="logo"
+            width={125}
+            height={125}
+          />
+        </div>
+
         <div className="h-fit flex items-center md:hidden">
           <Sheet>
             <SheetTrigger className="hover:bg-transparent bg-transparent hover:text-customYellow ">
               <Image width={30} height={30} src={menuIcon} alt="Display Icon" />
             </SheetTrigger>
-            <SheetContent className="bg-customBlack">
-              <SheetHeader>
+            <SheetContent className="bg-customBlack w-screen p-0">
+              <SheetHeader className="px-6 py-8">
                 <SheetTitle></SheetTitle>
                 <SheetDescription></SheetDescription>
+                <AuthButton
+                  className="bg-customGrey hover:bg-customGrey hover:backdrop-blur-md text-white  "
+                  href="https://accounts.binance.com/en/login?loginChannel=&return_to="
+                >
+                  Log In
+                </AuthButton>
+                <AuthButton
+                  className="bg-customYellow hover:bg-customYellow hover:backdrop-blur-md text-customBlack "
+                  href="https://accounts.binance.com/en/register?registerChannel=&return_to="
+                >
+                  Sign Up
+                </AuthButton>
               </SheetHeader>
-              <AuthButton
-                className="bg-customGrey hover:bg-customGrey hover:backdrop-blur-md text-white   text-sm font-semibold hover:filter hover:brightness-90"
-                href="https://accounts.binance.com/en/login?loginChannel=&return_to="
-              >
-                Log In
-              </AuthButton>
-              <AuthButton
-                className="bg-customYellow hover:bg-customYellow hover:backdrop-blur-md text-customBlack text-sm font-semibold hover:filter hover:brightness-90"
-                href="https://accounts.binance.com/en/register?registerChannel=&return_to="
-              >
-                Sign Up
-              </AuthButton>
+              <div className="py-2 w-full space-y-2"></div>
+              <Button className="bg-transparent hover: w-full hover:bg-customGrey rounded-none flex items-start justify-start">
+                <Link
+                  className="px-3"
+                  href={"https://www.binance.com/en/crypto/buy"}
+                >
+                  Buy Crypto
+                </Link>
+                <Link
+                  className="px-3"
+                  href={"https://www.binance.com/en/crypto/buy"}
+                >
+                  Buy Crypto
+                </Link>
+              </Button>
             </SheetContent>
           </Sheet>
         </div>
 
         <div className="space-x-2  hidden md:flex md:items-center ">
           <AuthButton
-            className="bg-customGrey hover:bg-customGrey hover:backdrop-blur-md text-white   text-sm font-semibold hover:filter hover:brightness-90"
+            className="bg-customGrey hover:bg-customGrey hover:backdrop-blur-md text-white   "
             href="https://accounts.binance.com/en/login?loginChannel=&return_to="
           >
             Log In
           </AuthButton>
           <AuthButton
-            className="bg-customYellow hover:bg-customYellow hover:backdrop-blur-md text-customBlack text-sm font-semibold hover:filter hover:brightness-90"
+            className="bg-customYellow hover:bg-customYellow hover:backdrop-blur-md text-customBlack "
             href="https://accounts.binance.com/en/register?registerChannel=&return_to="
           >
             Sign Up
