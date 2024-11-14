@@ -8,6 +8,12 @@ import { Button } from "./ui/button";
 import displayIcon from "../assets/icons/display-icon.svg";
 import nightIcon from "../assets/icons/night-icon.svg";
 import bitcoinIcon from "../assets/icons/bitcoin-icon.svg";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 import menuIcon from "../assets/icons/menu.svg";
 import Link from "next/link";
@@ -63,13 +69,14 @@ export const Nav = () => {
           />
         </div>
 
+        {/* Mobile */}
         <div className="h-fit flex items-center md:hidden">
           <Sheet>
             <SheetTrigger className="hover:bg-transparent bg-transparent hover:text-customYellow ">
               <Image width={30} height={30} src={menuIcon} alt="Display Icon" />
             </SheetTrigger>
             <SheetContent className="bg-customBlack w-screen p-0">
-              <SheetHeader className="px-6 py-8">
+              <SheetHeader className="container px-4 py-8">
                 <SheetTitle></SheetTitle>
                 <SheetDescription></SheetDescription>
                 <div className="flex space-x-4">
@@ -88,24 +95,48 @@ export const Nav = () => {
                 </div>
               </SheetHeader>
               <div className="py-2 w-full space-y-2"></div>
-              <Button className="bg-transparent hover: w-full hover:bg-customGrey rounded-none flex items-start justify-start">
+              <Button className="container bg-transparent hover: w-full hover:bg-customGrey rounded-none flex items-start justify-start">
                 <Link
-                  className="px-3"
-                  href={"https://www.binance.com/en/crypto/buy"}
-                >
-                  Buy Crypto
-                </Link>
-                <Link
-                  className="px-3"
+                  className=""
                   href={"https://www.binance.com/en/crypto/buy"}
                 >
                   Buy Crypto
                 </Link>
               </Button>
+              <Button className=" container bg-transparent hover: w-full hover:bg-customGrey rounded-none flex items-start justify-start">
+                <Link
+                  className=""
+                  href={"https://www.binance.com/en/crypto/buy"}
+                >
+                  Markets
+                </Link>
+              </Button>
+              <Accordion
+                type="single"
+                collapsible
+                className="container text-white "
+              >
+                <AccordionItem value="item-1">
+                  <AccordionTrigger className="bg-transparent px-4 hover: w-full hover:bg-customGrey rounded-none flex items-start justify-start">
+                    Trade
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <Button className="bg-transparent hover: w-full hover:bg-customGrey rounded-none flex items-start justify-start">
+                      <Link
+                        className="px-3"
+                        href={"https://www.binance.com/en/crypto/buy"}
+                      >
+                        Basic
+                      </Link>
+                    </Button>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
             </SheetContent>
           </Sheet>
         </div>
 
+        {/* Desktop + Tablet */}
         <div className="space-x-2  hidden md:flex md:items-center ">
           <AuthButton
             className="bg-customGrey hover:bg-customGrey hover:backdrop-blur-md text-white   "
