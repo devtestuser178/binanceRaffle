@@ -14,6 +14,7 @@ export default {
 			customBlack : '#181a20',
 			customYellow : '#fcd535',
 			customGrey: '#2b3139',
+			customAltGrey:'#1e2329' ,
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

@@ -7,6 +7,7 @@ import Image from "next/image";
 import { Button } from "./ui/button";
 import displayIcon from "../assets/icons/display-icon.svg";
 import nightIcon from "../assets/icons/night-icon.svg";
+import bitcoinIcon from "../assets/icons/bitcoin-icon.svg";
 
 import menuIcon from "../assets/icons/menu.svg";
 import Link from "next/link";
@@ -71,18 +72,20 @@ export const Nav = () => {
               <SheetHeader className="px-6 py-8">
                 <SheetTitle></SheetTitle>
                 <SheetDescription></SheetDescription>
-                <AuthButton
-                  className="bg-customGrey hover:bg-customGrey hover:backdrop-blur-md text-white  "
-                  href="https://accounts.binance.com/en/login?loginChannel=&return_to="
-                >
-                  Log In
-                </AuthButton>
-                <AuthButton
-                  className="bg-customYellow hover:bg-customYellow hover:backdrop-blur-md text-customBlack "
-                  href="https://accounts.binance.com/en/register?registerChannel=&return_to="
-                >
-                  Sign Up
-                </AuthButton>
+                <div className="flex space-x-4">
+                  <AuthButton
+                    className="bg-customAltGrey hover:bg-customGrey hover:backdrop-blur-md text-white  "
+                    href="https://accounts.binance.com/en/login?loginChannel=&return_to="
+                  >
+                    Log In
+                  </AuthButton>
+                  <AuthButton
+                    className="bg-customYellow hover:bg-customYellow hover:backdrop-blur-md text-customBlack "
+                    href="https://accounts.binance.com/en/register?registerChannel=&return_to="
+                  >
+                    Sign Up
+                  </AuthButton>
+                </div>
               </SheetHeader>
               <div className="py-2 w-full space-y-2"></div>
               <Button className="bg-transparent hover: w-full hover:bg-customGrey rounded-none flex items-start justify-start">
