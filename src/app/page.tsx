@@ -2,6 +2,8 @@ import { Nav } from "@/components/Nav";
 import Hero from "@/components/Hero";
 import Notification from "@/components/Notification";
 import FAQ from "@/components/FAQ/FAQ";
+import Footer from "@/components/Footer";
+import Banner from "@/components/Banner";
 
 export default function Home() {
   return (
@@ -11,6 +13,8 @@ export default function Home() {
         <Notification />
         <Hero />
         <FAQ />
+        <Banner />
+        <Footer />
       </div>
     </>
   );

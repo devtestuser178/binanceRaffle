@@ -17,6 +17,7 @@ export default {
 			customAltYellow: '#fcd535',
   			customGrey: '#2b3139',
   			customAltGrey: '#1e2329',
+			customAltSlate: '#5e8a9d',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
