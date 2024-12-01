@@ -183,8 +183,22 @@ export const Nav = () => {
                 />
               </svg>
             </PopoverTrigger>
-            <PopoverContent className="w-fit">
-              <Image src={qrCode} width={50} height={50} alt="qr-code"></Image>
+            <PopoverContent className="w-56 space-y-2 flex items-center flex-col justify-center bg-customGrey outline-none bottom-0 container px-8">
+              <Image src={qrCode} alt="qr-code"></Image>
+              <p className="text-center text-slate-100 text-sm pb-2">
+                {"Scan to Download App iOS & Android"}
+              </p>
+              <Button
+                asChild
+                className="hover:bg-customYellow/80 bg-customYellow  p-0 text-customGrey "
+              >
+                <Link
+                  className="px-3 font-medium"
+                  href={"https://www.binance.com/en/download?pageType=normal"}
+                >
+                  More Download Options
+                </Link>
+              </Button>
             </PopoverContent>
           </Popover>
           <Button className="hover:bg-transparent bg-transparent p-0 hover:text-customYellow ">
