@@ -1,13 +1,15 @@
 import { Nav } from "@/components/Nav";
-import Container from "@/components/Container";
+import Hero from "@/components/Hero";
+import Notification from "@/components/Notification";
 
 export default function Home() {
   return (
     <>
       <Nav></Nav>
-      <Container>
-        <></>
-      </Container>
+      <div className=" bg-customAltBlack h-full">
+        <Notification />
+        <Hero />
+      </div>
     </>
   );
 }

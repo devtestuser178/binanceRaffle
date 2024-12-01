@@ -12,6 +12,7 @@ export default {
   	extend: {
   		colors: {
   			customBlack: '#181a20',
+			customAltBlack : "#181e25",
   			customYellow: '#fcd535',
   			customGrey: '#2b3139',
   			customAltGrey: '#1e2329',
