@@ -7,7 +7,7 @@ import Image from "next/image";
 import { Button } from "./ui/button";
 import displayIcon from "../assets/icons/display-icon.svg";
 import nightIcon from "../assets/icons/night-icon.svg";
-import bitcoinIcon from "../assets/icons/bitcoin-icon.svg";
+
 import {
   Accordion,
   AccordionContent,
