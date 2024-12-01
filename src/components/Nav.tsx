@@ -5,8 +5,11 @@ import binanceLogo from "../assets/binance-h.png";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { Button } from "./ui/button";
-import displayIcon from "../assets/icons/display-icon.svg";
-import nightIcon from "../assets/icons/night-icon.svg";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 
 import {
   Accordion,
@@ -25,6 +28,8 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+
+import qrCode from "./../assets/images/qrCode.png";
 
 interface AuthButtonProps {
   href: string;
@@ -103,7 +108,10 @@ export const Nav = () => {
                   Buy Crypto
                 </Link>
               </Button>
-              <Button className=" container bg-transparent hover: w-full hover:bg-customGrey rounded-none flex items-start justify-start">
+              <Button
+                className=" container bg-transparent hover: w-full hover:bg-customGrey 
+                rounded-none flex items-start justify-start"
+              >
                 <Link
                   className=""
                   href={"https://www.binance.com/en/crypto/buy"}
@@ -117,11 +125,17 @@ export const Nav = () => {
                 className="container text-white "
               >
                 <AccordionItem value="item-1">
-                  <AccordionTrigger className="bg-transparent px-4 hover: w-full hover:bg-customGrey rounded-none flex items-start justify-start">
+                  <AccordionTrigger
+                    className="bg-transparent px-4 hover: w-full 
+                    hover:bg-customGrey rounded-none flex items-start justify-start"
+                  >
                     Trade
                   </AccordionTrigger>
                   <AccordionContent>
-                    <Button className="bg-transparent hover: w-full hover:bg-customGrey rounded-none flex items-start justify-start">
+                    <Button
+                      className="bg-transparent hover: w-full hover:bg-customGrey 
+                      rounded-none flex items-start justify-start"
+                    >
                       <Link
                         className="px-3"
                         href={"https://www.binance.com/en/crypto/buy"}
@@ -150,22 +164,43 @@ export const Nav = () => {
           >
             Sign Up
           </AuthButton>
-          <Button
-            className="hover:bg-transparent bg-transparent hover:text-customYellow "
-            size="icon"
-          >
-            <Image
-              width={30}
-              height={30}
-              src={displayIcon}
-              alt="Display Icon"
-            />
-          </Button>
-          <Button
-            className="hover:bg-transparent bg-transparent hover:text-customYellow "
-            size="icon"
-          >
-            <Image width={30} height={30} src={nightIcon} alt="Display Icon" />
+          <Popover>
+            <PopoverTrigger className="hover:bg-transparent bg-transparent ">
+              <svg
+                className="hover:fill-current hover:text-customYellow"
+                xmlns="http://www.w3.org/2000/svg"
+                fillRule="evenodd"
+                clipRule="evenodd"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                width={40}
+                height={40}
+              >
+                <path
+                  className="hover:text-customYellow"
+                  d="M7.5 6V9H4.5V3H5H7.5H16H19V6V9H16V6H7.5ZM5 21H4.5V15H7.5V18H16V15H19V18V21H16H7.5H5ZM13.5088 12.0024L16.0176 12.0078L12.0088 16.0166L8 12.0078L10.5088 11.9832V8H13.5088V12.0024Z"
+                  fill="#fafafa"
+                />
+              </svg>
+            </PopoverTrigger>
+            <PopoverContent className="w-fit">
+              <Image src={qrCode} width={50} height={50} alt="qr-code"></Image>
+            </PopoverContent>
+          </Popover>
+          <Button className="hover:bg-transparent bg-transparent p-0 hover:text-customYellow ">
+            <svg
+              viewBox="0 0 24 24"
+              fillRule="evenodd"
+              clipRule="evenodd"
+              xmlns="http://www.w3.org/2000/svg"
+              style={{ width: "30px", height: "30px" }}
+              stroke="currentColor"
+            >
+              <path
+                d="M20 12.67A6.233 6.233 0 0111.33 4 8.015 8.015 0 1020 12.67z"
+                fill="#fafafa"
+              ></path>
+            </svg>
           </Button>
         </div>
       </motion.div>
