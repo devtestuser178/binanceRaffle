@@ -13,7 +13,8 @@ export default {
   		colors: {
   			customBlack: '#181a20',
 			customAltBlack : "#181e25",
-  			customYellow: '#fcd535',
+  			customYellow: '#f3b611',
+			customAltYellow: '#fcd535',
   			customGrey: '#2b3139',
   			customAltGrey: '#1e2329',
   			background: 'hsl(var(--background))',
