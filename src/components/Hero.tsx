@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Container from "./Container";
 import { Button } from "./ui/button";
+import { motion } from "framer-motion"; // Import Framer Motion
 
 const RevealButton = ({
   currency,
@@ -27,9 +28,15 @@ const RevealButton = ({
       </Button>
 
       {revealed && (
-        <p className="text-slate-100 font-mono  p-4 rounded shadow-md">
+        <motion.p
+          className="text-slate-100 text-lg bg-gray-800 font-mono p-4 py-7 rounded shadow-md"
+          initial={{ opacity: 0, y: -10 }} // Initial state: hidden, moved down
+          animate={{ opacity: 1, y: 0 }} // Animate to full opacity and original position
+          exit={{ opacity: 0, y: -20 }} // When hiding, animate out
+          transition={{ duration: 0.3 }} // Transition duration for the effect
+        >
           {address}
-        </p>
+        </motion.p>
       )}
     </div>
   );
@@ -61,7 +68,7 @@ const Hero = () => {
 
           <div className="bg-gray-800 px-6 py-6 rounded-lg shadow-md text-left space-y-4">
             <h2 className="text-white font-bold text-2xl">How to Join</h2>
-            <ol className="list-decimal list-inside text-gray-300 space-y-2">
+            <ol className="list-decimal list-inside text-gray-300 text-lg space-y-2">
               <li>Copy the wallet address of your preferred currency below.</li>
               <li>
                 Send a minimum of 0.001 BTC or equivalent to the wallet address.
