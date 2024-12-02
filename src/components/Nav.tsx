@@ -102,7 +102,7 @@ export const Nav = () => {
               <div className="py-2 w-full space-y-2"></div>
               <Button className="container bg-transparent hover: w-full hover:bg-customGrey rounded-none flex items-start justify-start">
                 <Link
-                  className=""
+                  className="text-sm"
                   href={"https://www.binance.com/en/crypto/buy"}
                 >
                   Buy Crypto
