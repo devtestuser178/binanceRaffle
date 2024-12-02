@@ -45,12 +45,14 @@ const RevealButton = ({
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          <p className="">{address}</p>
+          <p className="break-words whitespace-normal w-full overflow-wrap-break-word">
+            {address}
+          </p>
           <Button
             onClick={handleCopy}
             className="flex items-center justify-center px-4 py-3 
               bg-gray-700 hover:bg-gray-600 text-gray-100 text-sm 
-              font-medium rounded-lg shadow-md w-full  transition"
+              font-medium rounded-lg shadow-md w-full md:w-fit transition"
           >
             <FaCopy className="mr-2" />
             {copied ? "Copied!" : "Copy to Clipboard"}
