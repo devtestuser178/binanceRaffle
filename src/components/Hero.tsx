@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Container from "./Container";
 import { Button } from "./ui/button";
 import { motion } from "framer-motion"; // Import Framer Motion
+import { FaCopy } from "react-icons/fa";
 
 const RevealButton = ({
   currency,
@@ -12,31 +13,43 @@ const RevealButton = ({
   address: string;
 }) => {
   const [revealed, setRevealed] = useState(false);
+  const [copied, setCopied] = useState(false);
 
   const toggleReveal = () => {
     setRevealed((prev) => !prev);
   };
 
+  const handleCopy = () => {
+    navigator.clipboard.writeText(address);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
-    <div className="space-y-4">
+    <div className="flex flex-col sm:flex-col sm:items-center  ">
       <Button
         onClick={toggleReveal}
-        className="px-6 py-3  bg-customAltYellow hover:bg-customAltYellow/90 min-w-fit w-56 text-customBlack text-sm 
+        className="px-6 py-3 bg-customAltYellow hover:bg-customAltYellow/90 w-full sm:w-56 text-customBlack text-sm 
             font-bold rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
       >
         {revealed ? `Hide ${currency} Address` : `Reveal ${currency} Address`}
       </Button>
 
       {revealed && (
-        <motion.p
-          className="text-slate-100 text-lg bg-gray-800 font-mono p-4 py-7 rounded shadow-md"
-          initial={{ opacity: 0, y: -10 }} // Initial state: hidden, moved down
-          animate={{ opacity: 1, y: 0 }} // Animate to full opacity and original position
-          exit={{ opacity: 0, y: -20 }} // When hiding, animate out
-          transition={{ duration: 0.3 }} // Transition duration for the effect
+        <motion.div
+          className="text-slate-100 text-lg bg-gray-800 font-mono p-4 py-7 rounded shadow-md space-y-6 w-full sm:w-auto "
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
         >
-          {address}
-        </motion.p>
+          <p> {address}</p>
+          <Button
+            onClick={handleCopy}
+            className="flex items-center px-4 py-3 bg-gray-700 hover:bg-gray-600 text-gray-100 text-sm font-medium rounded-lg shadow-md w-full sm:w-auto transition"
+          >
+            <FaCopy className="mr-2" />
+            {copied ? "Copied!" : "Copy to Clipboard"}
+          </Button>
+        </motion.div>
       )}
     </div>
   );
@@ -53,11 +66,11 @@ const Hero = () => {
   ];
 
   return (
-    <section className=" text-center py-12">
+    <section className="text-center py-12">
       <Container>
         <div className="space-y-12">
           <div className="space-y-6">
-            <h1 className="text-white font-extrabold text-5xl ">
+            <h1 className="text-white font-extrabold text-5xl">
               Join the Bull-Run
             </h1>
             <p className="text-gray-300 text-xl font-medium">
@@ -78,7 +91,7 @@ const Hero = () => {
             </ol>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-6 sm:grid  ">
             {walletAddresses.map(({ currency, address }) => (
               <RevealButton
                 key={currency}

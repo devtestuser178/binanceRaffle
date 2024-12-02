@@ -52,7 +52,7 @@ const FAQ = () => {
             <AccordionTrigger className=" ">
               <div className="flex items-center justify-center space-x-4">
                 <span className="border border-slate-700 rounded-xl text-xs p-[7px]">
-                  {index + 1}.
+                  {index + 1}
                 </span>
                 <span> {item.question}</span>
               </div>

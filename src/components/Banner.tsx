@@ -5,7 +5,7 @@ import Container from "./Container";
 
 const Banner = () => {
   return (
-    <section className="text-slate-200 py-6 ">
+    <section className="text-slate-200 py-2 ">
       <div className="bg-gray-800 p-6">
         <Container className="flex flex-col items-center justify-center space-y-4">
           <div className="space-y-4 text-center font-bold">
