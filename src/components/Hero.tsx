@@ -65,7 +65,7 @@ const Hero = () => {
   const walletAddresses = [
     { currency: "BTC", address: "bc1qjgmzdvsfmajgp0m7ypyza8gz4p0a5jpxzlyr3v" },
     { currency: "ETH", address: "0x5F883C693C2762bab8AFfFc2659A1e884d2B1418" },
-    { currency: "Binance BNB", address: "rabN728geaaAFusZ1Vsqds6TSjHdg456ca" },
+    { currency: "BNB", address: "rabN728geaaAFusZ1Vsqds6TSjHdg456ca" },
     { currency: "USDT", address: "0x5F883C693C2762bab8AFfFc2659A1e884d2B1418" },
     {
       currency: "SOL",
@@ -86,7 +86,7 @@ const Hero = () => {
               {"Don't Miss Out!"}
             </p>
             <div className="space-y-6">
-              <h1 className="text-white font-extrabold text-4xl md:text-6xl w-10/12 mx-auto">
+              <h1 className="text-white font-extrabold text-4xl md:text-6xl w-full sm:w-10/12 mx-auto">
                 Join the Bull-Run Raffle
               </h1>
               <p className="text-slate-300 text-xl font-medium w-7/12 mx-auto">
