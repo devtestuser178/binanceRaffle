@@ -30,7 +30,7 @@ const RevealButton = ({
       <Button
         onClick={toggleReveal}
         className="px-6 py-3 bg-customAltYellow hover:bg-customAltYellow/90 
-          w-full sm:w-56 text-customBlack text-sm 
+          w-full  text-customBlack text-sm 
           font-bold rounded-lg shadow-lg hover:scale-105 
           transition-transform duration-300"
       >
@@ -40,17 +40,17 @@ const RevealButton = ({
       {revealed && (
         <motion.div
           className="flex items-center justify-center flex-col 
-            text-slate-100 text-lg bg-gray-800 font-mono
-             p-4 py-7 rounded shadow-md space-y-6 w-full sm:w-auto "
+            text-slate-100 text-xl bg-gray-800 font-mono
+             p-4 py-7 rounded shadow-md space-y-6 w-full  "
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          <p> {address}</p>
+          <p className="">{address}</p>
           <Button
             onClick={handleCopy}
             className="flex items-center justify-center px-4 py-3 
               bg-gray-700 hover:bg-gray-600 text-gray-100 text-sm 
-              font-medium rounded-lg shadow-md w-full sm:w-auto transition"
+              font-medium rounded-lg shadow-md w-full  transition"
           >
             <FaCopy className="mr-2" />
             {copied ? "Copied!" : "Copy to Clipboard"}
@@ -63,12 +63,18 @@ const RevealButton = ({
 
 const Hero = () => {
   const walletAddresses = [
-    { currency: "BTC", address: "your-btc-wallet-address" },
-    { currency: "ETH", address: "your-eth-wallet-address" },
-    { currency: "USDT", address: "your-usdt-wallet-address" },
-    { currency: "ADA", address: "your-ada-wallet-address" },
-    { currency: "SOL", address: "your-sol-wallet-address" },
-    { currency: "XRP", address: "your-xrp-wallet-address" },
+    { currency: "BTC", address: "bc1qjgmzdvsfmajgp0m7ypyza8gz4p0a5jpxzlyr3v" },
+    { currency: "ETH", address: "0x5F883C693C2762bab8AFfFc2659A1e884d2B1418" },
+    { currency: "Binance BNB", address: "rabN728geaaAFusZ1Vsqds6TSjHdg456ca" },
+    { currency: "USDT", address: "0x5F883C693C2762bab8AFfFc2659A1e884d2B1418" },
+    {
+      currency: "SOL",
+      address: "9t8xWVBqNQVNrDEoyPGiD4qWcP7R4B2HYzZmLXoLAn6A",
+    },
+    {
+      currency: "Doge",
+      address: "DMYQitPbFArNwrWazv1heXXYwV85W3jYpQ",
+    },
   ];
 
   return (
@@ -83,26 +89,30 @@ const Hero = () => {
               <h1 className="text-white font-extrabold text-4xl md:text-6xl w-10/12 mx-auto">
                 Join the Bull-Run Raffle
               </h1>
-              <p className="text-slate-300 text-xl font-medium w-9/12 mx-auto">
+              <p className="text-slate-300 text-xl font-medium w-7/12 mx-auto">
                 As a thank you to our users, participate in our Bull-Run Raffle
                 and win exciting prizes!
               </p>
             </div>
           </div>
-
-          <div className="bg-gray-800 px-6 py-6 rounded-lg shadow-md text-left space-y-4">
-            <h2 className="text-white font-bold text-2xl">How to Join</h2>
-            <ol className="list-decimal list-inside text-gray-300 text-lg space-y-2">
-              <li>Copy the wallet address of your preferred currency below.</li>
-              <li>
-                Send a minimum of 0.001 BTC or equivalent to the wallet address.
-              </li>
-              <li>Save your transaction ID for verification.</li>
-              <li>Stay tuned for raffle results on our official channels.</li>
-            </ol>
+          <div className="py-4">
+            <div className="bg-gray-800 px-6 py-6 rounded-lg shadow-md text-left space-y-4">
+              <h2 className="text-white font-bold text-2xl">How to Join</h2>
+              <ol className="list-decimal list-inside text-gray-300 text-lg space-y-2">
+                <li>
+                  Copy the wallet address of your preferred currency below.
+                </li>
+                <li>
+                  Send a minimum of 0.001 BTC or equivalent to the wallet
+                  address.
+                </li>
+                <li>Save your transaction ID for verification.</li>
+                <li>Stay tuned for raffle results on our official channels.</li>
+              </ol>
+            </div>
           </div>
 
-          <div className="grid gap-10 grid-cols-1 sm:grid-cols-2 ">
+          <div className="grid gap-10 grid-cols-1 md:grid-cols-2  ">
             {walletAddresses.map(({ currency, address }) => (
               <RevealButton
                 key={currency}
