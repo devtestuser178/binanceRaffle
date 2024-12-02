@@ -9,7 +9,7 @@ interface ContainerProps {
 
 const Container: React.FC<ContainerProps> = ({ children, className }) => {
   return (
-    <main className={cn(`container mx-auto px-4 ${className}`)}>
+    <main className={cn(`container mx-auto px-4 max-w-6xl ${className}`)}>
       {children}
     </main>
   ); // Include className in the main element

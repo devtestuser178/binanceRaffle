@@ -29,22 +29,28 @@ const RevealButton = ({
     <div className="flex flex-col sm:flex-col sm:items-center  ">
       <Button
         onClick={toggleReveal}
-        className="px-6 py-3 bg-customAltYellow hover:bg-customAltYellow/90 w-full sm:w-56 text-customBlack text-sm 
-            font-bold rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
+        className="px-6 py-3 bg-customAltYellow hover:bg-customAltYellow/90 
+          w-full sm:w-56 text-customBlack text-sm 
+          font-bold rounded-lg shadow-lg hover:scale-105 
+          transition-transform duration-300"
       >
         {revealed ? `Hide ${currency} Address` : `Reveal ${currency} Address`}
       </Button>
 
       {revealed && (
         <motion.div
-          className="text-slate-100 text-lg bg-gray-800 font-mono p-4 py-7 rounded shadow-md space-y-6 w-full sm:w-auto "
+          className="flex items-center justify-center flex-col 
+            text-slate-100 text-lg bg-gray-800 font-mono
+             p-4 py-7 rounded shadow-md space-y-6 w-full sm:w-auto "
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
         >
           <p> {address}</p>
           <Button
             onClick={handleCopy}
-            className="flex items-center px-4 py-3 bg-gray-700 hover:bg-gray-600 text-gray-100 text-sm font-medium rounded-lg shadow-md w-full sm:w-auto transition"
+            className="flex items-center justify-center px-4 py-3 
+              bg-gray-700 hover:bg-gray-600 text-gray-100 text-sm 
+              font-medium rounded-lg shadow-md w-full sm:w-auto transition"
           >
             <FaCopy className="mr-2" />
             {copied ? "Copied!" : "Copy to Clipboard"}
@@ -69,14 +75,19 @@ const Hero = () => {
     <section className="text-center py-12">
       <Container>
         <div className="space-y-12">
-          <div className="space-y-6">
-            <h1 className="text-white font-extrabold text-5xl">
-              Join the Bull-Run
-            </h1>
-            <p className="text-gray-300 text-xl font-medium">
-              As a thank you to our users, participate in our Bull-Run Raffle
-              and win exciting prizes!
+          <div className="">
+            <p className=" text-xl text-customYellow font-semibold py-2">
+              {"Don't Miss Out!"}
             </p>
+            <div className="space-y-6">
+              <h1 className="text-white font-extrabold text-2xl sm:text-3xl md:text-6xl">
+                Join the Bull-Run
+              </h1>
+              <p className="text-slate-300 text-xl font-medium">
+                As a thank you to our users, participate in our Bull-Run Raffle
+                and win exciting prizes!
+              </p>
+            </div>
           </div>
 
           <div className="bg-gray-800 px-6 py-6 rounded-lg shadow-md text-left space-y-4">
@@ -91,7 +102,7 @@ const Hero = () => {
             </ol>
           </div>
 
-          <div className="space-y-6 sm:grid  ">
+          <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 ">
             {walletAddresses.map(({ currency, address }) => (
               <RevealButton
                 key={currency}

@@ -29,6 +29,8 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
+import { navLinks } from "@/data/NavLinks";
+
 import qrCode from "./../assets/images/qrCode.png";
 
 interface AuthButtonProps {
@@ -50,28 +52,37 @@ export const AuthButton = ({ href, children, className }: AuthButtonProps) => {
   );
 };
 
+export const NavMenu = () => {
+  return (
+    <div className="text-slate-200 font-semibold space-x-6 px-6">
+      {navLinks.map((link, index) => (
+        <Link
+          key={index}
+          className={`text-slate-200 text-sm font-medium hover:text-customYellow`}
+          href={link.href}
+        >
+          {link.label}
+        </Link>
+      ))}
+    </div>
+  );
+};
+
 export const Nav = () => {
   return (
-    <motion.div
-      className="py-3 bg-customBlack"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-    >
-      <motion.div
-        className="flex justify-between items-center px-5"
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 0.5 }}
-      >
+    <motion.div className="py-3 bg-customBlack max-w-8xl mx-auto">
+      <motion.div className="flex justify-between items-center px-5">
         <div className="flex items-center">
-          <Image
-            src={binanceLogo}
-            alt="Binance Logo"
-            className="logo"
-            width={125}
-            height={125}
-          />
+          <Link href={"./"}>
+            <Image
+              src={binanceLogo}
+              alt="Binance Logo"
+              className="logo"
+              width={125}
+              height={125}
+            />
+          </Link>
+          <NavMenu />
         </div>
 
         {/* Mobile */}
@@ -99,53 +110,54 @@ export const Nav = () => {
                   </AuthButton>
                 </div>
               </SheetHeader>
-              <div className="py-2 w-full space-y-2"></div>
-              <Button className="container bg-transparent hover: w-full hover:bg-customGrey rounded-none flex items-start justify-start">
-                <Link
-                  className="text-sm"
-                  href={"https://www.binance.com/en/crypto/buy"}
-                >
-                  Buy Crypto
-                </Link>
-              </Button>
-              <Button
-                className=" container bg-transparent hover: w-full hover:bg-customGrey 
-                rounded-none flex items-start justify-start"
-              >
-                <Link
-                  className=""
-                  href={"https://www.binance.com/en/crypto/buy"}
-                >
-                  Markets
-                </Link>
-              </Button>
-              <Accordion
-                type="single"
-                collapsible
-                className="container text-white "
-              >
-                <AccordionItem value="item-1">
-                  <AccordionTrigger
-                    className="bg-transparent px-4 hover: w-full 
-                    hover:bg-customGrey rounded-none flex items-start justify-start"
+              <div className="py-2 w-full space-y-2">
+                <Button className="container  bg-transparent hover: w-full hover:bg-customGrey rounded-none flex items-start justify-start">
+                  <Link
+                    className="text-sm"
+                    href={"https://www.binance.com/en/crypto/buy"}
                   >
-                    Trade
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <Button
-                      className="bg-transparent hover: w-full hover:bg-customGrey 
-                      rounded-none flex items-start justify-start"
+                    Buy Crypto
+                  </Link>
+                </Button>
+                <Button
+                  className=" container bg-transparent hover: w-full hover:bg-customGrey 
+                rounded-none flex items-start justify-start"
+                >
+                  <Link
+                    className=""
+                    href={"https://www.binance.com/en/crypto/buy"}
+                  >
+                    Markets
+                  </Link>
+                </Button>
+                <Accordion
+                  type="single"
+                  collapsible
+                  className="container text-white "
+                >
+                  <AccordionItem value="item-1">
+                    <AccordionTrigger
+                      className="bg-transparent px-4 hover: w-full 
+                    hover:bg-customGrey rounded-none flex items-start justify-start"
                     >
-                      <Link
-                        className="px-3"
-                        href={"https://www.binance.com/en/crypto/buy"}
+                      Trade
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <Button
+                        className="bg-transparent hover: w-full hover:bg-customGrey 
+                      rounded-none flex items-start justify-start"
                       >
-                        Basic
-                      </Link>
-                    </Button>
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
+                        <Link
+                          className="px-3"
+                          href={"https://www.binance.com/en/crypto/buy"}
+                        >
+                          Basic
+                        </Link>
+                      </Button>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+              </div>
             </SheetContent>
           </Sheet>
         </div>
@@ -173,8 +185,8 @@ export const Nav = () => {
                 clipRule="evenodd"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
-                width={40}
-                height={40}
+                width={30}
+                height={30}
               >
                 <path
                   className="hover:text-customYellow"
@@ -183,9 +195,14 @@ export const Nav = () => {
                 />
               </svg>
             </PopoverTrigger>
-            <PopoverContent className="w-56 space-y-2 flex items-center flex-col justify-center bg-customGrey outline-none bottom-0 container px-8">
-              <Image src={qrCode} alt="qr-code"></Image>
-              <p className="text-center text-slate-100 text-sm pb-2">
+            <PopoverContent className=" w-52 space-y-2 flex items-center flex-col justify-center bg-customGrey outline-none bottom-0 container px-8">
+              <Image
+                src={qrCode}
+                alt="qr-code"
+                width={400}
+                height={300}
+              ></Image>
+              <p className="text-center text-slate-100 text-sm pb-2 w-8/12">
                 {"Scan to Download App iOS & Android"}
               </p>
               <Button
@@ -207,7 +224,7 @@ export const Nav = () => {
               fillRule="evenodd"
               clipRule="evenodd"
               xmlns="http://www.w3.org/2000/svg"
-              style={{ width: "30px", height: "30px" }}
+              style={{ width: "25px", height: "25px" }}
               stroke="currentColor"
             >
               <path
