@@ -26,7 +26,7 @@ const RevealButton = ({
   };
 
   return (
-    <div className="flex flex-col sm:flex-col sm:items-center  ">
+    <div className="flex flex-col sm:flex-col sm:items-center">
       <Button
         onClick={toggleReveal}
         className="px-6 py-3 bg-customAltYellow hover:bg-customAltYellow/90 
@@ -76,14 +76,14 @@ const Hero = () => {
       <Container>
         <div className="space-y-12">
           <div className="">
-            <p className=" text-xl text-customYellow font-semibold py-2">
+            <p className=" text-lg md:text-xl text-customYellow font-semibold py-4">
               {"Don't Miss Out!"}
             </p>
             <div className="space-y-6">
-              <h1 className="text-white font-extrabold text-2xl sm:text-3xl md:text-6xl">
-                Join the Bull-Run
+              <h1 className="text-white font-extrabold text-4xl md:text-6xl w-10/12 mx-auto">
+                Join the Bull-Run Raffle
               </h1>
-              <p className="text-slate-300 text-xl font-medium">
+              <p className="text-slate-300 text-xl font-medium w-9/12 mx-auto">
                 As a thank you to our users, participate in our Bull-Run Raffle
                 and win exciting prizes!
               </p>
@@ -102,7 +102,7 @@ const Hero = () => {
             </ol>
           </div>
 
-          <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 ">
+          <div className="grid gap-10 grid-cols-1 sm:grid-cols-2 ">
             {walletAddresses.map(({ currency, address }) => (
               <RevealButton
                 key={currency}

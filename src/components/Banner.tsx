@@ -8,12 +8,12 @@ const Banner = () => {
     <section className="text-slate-200 py-2 ">
       <div className="bg-gray-800 p-6 md:py-20">
         <Container className="flex flex-col items-center justify-center space-y-4">
-          <div className="space-y-4 text-center font-bold text-slate-300 md:text-4xl md:py-8">
-            <p className="md:py-8">For Verified Users</p>
-            <span className="">
+          <div className="space-y-8 text-center font-bold text-slate-300 md:text-4xl md:pb-8">
+            <div className="">For Verified Users</div>
+            <div className="">
               Get up to <span className="text-customYellow">100 USD</span> worth
               of rewards
-            </span>
+            </div>
           </div>
           <Button
             asChild

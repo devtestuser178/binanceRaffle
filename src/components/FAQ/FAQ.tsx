@@ -44,7 +44,7 @@ const FAQ = () => {
   ];
 
   return (
-    <section className="p-4 py-20 bg-transparent text-slate-200">
+    <section className="px-4  bg-transparent text-slate-200">
       <Container>
         <h2 className="text-slate-200 text-center  font-bold text-2xl md:text-4xl py-4 pb-2 md:pb-16 ">
           Frequently Asked Questions

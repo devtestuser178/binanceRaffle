@@ -10,14 +10,6 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-
 import menuIcon from "../assets/icons/menu.svg";
 import Link from "next/link";
 import {
@@ -28,9 +20,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-
 import { navLinks } from "@/data/NavLinks";
-
 import qrCode from "./../assets/images/qrCode.png";
 
 interface AuthButtonProps {
@@ -52,13 +42,17 @@ export const AuthButton = ({ href, children, className }: AuthButtonProps) => {
   );
 };
 
-export const NavMenu = () => {
+interface NavMenuProps {
+  className?: string;
+}
+
+export const NavMenu = ({ className = "" }: NavMenuProps) => {
   return (
-    <div className="text-slate-200 font-semibold space-x-6 px-6">
+    <div className={cn(`text-slate-200 font-semibold  px-6 ${className} `)}>
       {navLinks.map((link, index) => (
         <Link
           key={index}
-          className={`text-slate-200 text-sm font-medium hover:text-customYellow`}
+          className={`text-slate-200 text-xl lg:text-sm font-medium hover:text-customYellow`}
           href={link.href}
         >
           {link.label}
@@ -82,11 +76,11 @@ export const Nav = () => {
               height={125}
             />
           </Link>
-          <NavMenu />
+          <NavMenu className="hidden lg:flex space-x-6" />
         </div>
 
         {/* Mobile */}
-        <div className="h-fit flex items-center md:hidden">
+        <div className="h-fit flex items-center lg:hidden">
           <Sheet>
             <SheetTrigger className="hover:bg-transparent bg-transparent hover:text-customYellow ">
               <Image width={30} height={30} src={menuIcon} alt="Display Icon" />
@@ -110,60 +104,13 @@ export const Nav = () => {
                   </AuthButton>
                 </div>
               </SheetHeader>
-              <div className="py-2 w-full space-y-2">
-                <Button className="container  bg-transparent hover: w-full hover:bg-customGrey rounded-none flex items-start justify-start">
-                  <Link
-                    className="text-sm"
-                    href={"https://www.binance.com/en/crypto/buy"}
-                  >
-                    Buy Crypto
-                  </Link>
-                </Button>
-                <Button
-                  className=" container bg-transparent hover: w-full hover:bg-customGrey 
-                rounded-none flex items-start justify-start"
-                >
-                  <Link
-                    className=""
-                    href={"https://www.binance.com/en/crypto/buy"}
-                  >
-                    Markets
-                  </Link>
-                </Button>
-                <Accordion
-                  type="single"
-                  collapsible
-                  className="container text-white "
-                >
-                  <AccordionItem value="item-1">
-                    <AccordionTrigger
-                      className="bg-transparent px-4 hover: w-full 
-                    hover:bg-customGrey rounded-none flex items-start justify-start"
-                    >
-                      Trade
-                    </AccordionTrigger>
-                    <AccordionContent>
-                      <Button
-                        className="bg-transparent hover: w-full hover:bg-customGrey 
-                      rounded-none flex items-start justify-start"
-                      >
-                        <Link
-                          className="px-3"
-                          href={"https://www.binance.com/en/crypto/buy"}
-                        >
-                          Basic
-                        </Link>
-                      </Button>
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
-              </div>
+              <NavMenu className="py-2 w-full space-y-6 flex flex-col items-start justify-start " />
             </SheetContent>
           </Sheet>
         </div>
 
         {/* Desktop + Tablet */}
-        <div className="space-x-2  hidden md:flex md:items-center ">
+        <div className="space-x-2  hidden lg:flex lg:items-center ">
           <AuthButton
             className="bg-customGrey hover:bg-customGrey hover:backdrop-blur-md text-white   "
             href="https://accounts.binance.com/en/login?loginChannel=&return_to="
