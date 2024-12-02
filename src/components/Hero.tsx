@@ -91,7 +91,7 @@ const Hero = () => {
               <h1 className="text-white font-extrabold text-4xl md:text-6xl w-full sm:w-10/12 mx-auto">
                 Join the Bull-Run Raffle
               </h1>
-              <p className="text-slate-300 text-xl font-medium w-7/12 mx-auto">
+              <p className="text-slate-300 text-xl font-medium w-full sm:w-7/12 mx-auto">
                 As a thank you to our users, participate in our Bull-Run Raffle
                 and win exciting prizes!
               </p>
