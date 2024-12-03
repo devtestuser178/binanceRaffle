@@ -5,6 +5,8 @@ import FAQ from "@/components/FAQ/FAQ";
 import Footer from "@/components/Footer";
 import Banner from "@/components/Banner";
 
+export const runtime = "edge";
+
 export default function Home() {
   return (
     <>
